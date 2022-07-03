@@ -17,6 +17,8 @@ $validate = validate([
 
 $cadastrado = create('tb_accounts', $validate);
 
+dd($cadastrado);
+
 // if ($cadastrado) {
 //     flash('message', 'Cadastrado com sucesso', 'success');
 
