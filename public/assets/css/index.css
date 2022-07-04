@@ -15,6 +15,10 @@
     margin-bottom: 30px !important;
 }
 
+.main-button {
+    margin-left: 10px;
+}
+
 .main-footer {
     display: flex;
     gap: 15px;
