@@ -9,6 +9,8 @@
     <title>Curso de PHP devclass</title>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
     <div class="container">

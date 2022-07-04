@@ -1,7 +1,6 @@
+<h3 class="main-subtitle">Account</h3>
 
 <form action="/pages/form/create_user.php" method="POST" role="form">
-
-    <legend>Account</legend>
 
     <?=getFlash('message')?>
 

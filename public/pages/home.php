@@ -1,8 +1,8 @@
-<a href="?page=create_user">Cadastrar usuário</a>
+<h1 class="main-title">Página inicial</h1>
 
-<h2>Página inicial</h2>
+<?=getFlash('message')?>
 
-<table class="table table-striped table-hover">
+<table class="main-table table table-striped table-hover">
 
     <thead>
         <tr>
@@ -27,7 +27,7 @@
                 <a href="?page=edit_user&id=<?= $user->id ?>" class="btn btn-success">Editar</a>
             </td>
             <td>
-                <a href="" class="btn btn-danger">Deletar</a>
+                <a href="?page=delete_user&id=<?= $user-> id ?>" class="btn btn-danger">Deletar</a>
             </td>
         </tr>
 
@@ -35,3 +35,8 @@
     </tbody>
 
 </table>
+<footer class="main-footer">
+    <a href="?page=create_user" class="btn btn-primary">Cadastrar usuário</a>
+
+    <a href="?page=contato" class="btn btn-primary">Contato</a>
+</footer>

@@ -1,8 +1,8 @@
 <?php $user = find('tb_accounts', 'id', $_GET['id']); ?>
 
-<form action="/pages/form/update_user.php" method="POST" role="form">
+<h3 class="main-subtitle">Update Account</h3>
 
-    <legend>Update Account</legend>
+<form action="/pages/form/update_user.php" method="POST" role="form">
 
     <?=getFlash('message')?>
 

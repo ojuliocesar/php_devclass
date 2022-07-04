@@ -1,4 +1,4 @@
-<h2>Contato</h2>
+<h3 class="main-subtitle">Contato</h3>
 
 <?=getFlash('message')?>
 
