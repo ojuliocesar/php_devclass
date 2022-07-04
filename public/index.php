@@ -1,4 +1,4 @@
-<?php require '../bootstrap.php'?>
+<?php require '../bootstrap.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <?php require load() ?>
+        <?php require load();?>
     </div>
 </body>
 </html>

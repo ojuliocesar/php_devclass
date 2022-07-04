@@ -9,22 +9,20 @@ if (isEmpty()) {
 }
 
 $validate = validate([
-    'nome' => 's',
+    'name' => 's',
     'sobrenome' => 's',
     'email' => 'e',
-    'senha' => 's'
+    'password' => 's'
 ]);
 
 $cadastrado = create('tb_accounts', $validate);
 
-dd($cadastrado);
+if ($cadastrado) {
+    flash('message', 'Cadastrado com sucesso', 'success');
 
-// if ($cadastrado) {
-//     flash('message', 'Cadastrado com sucesso', 'success');
+    return redirect('create_user');
+}
 
-//     return redirect('create_user');
-// }
+flash('message', 'Erro ao cadastrar');
 
-// flash('message', 'Erro ao cadastrar');
-
-// redirect('create_user');
+redirect('create_user');

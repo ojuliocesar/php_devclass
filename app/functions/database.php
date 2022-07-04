@@ -1,7 +1,7 @@
 <?php
 
 function connect() {
-    $pdo = new \PDO("mysql:host=localhost;dbname=db_users;charset=utf8", 'root', 'root');
+    $pdo = new \PDO("mysql:host=localhost;dbname=db_users;charset=utf8", 'root', '');
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
@@ -27,11 +27,62 @@ function create($table, $fields) {
     return $insert->execute($fields);
 }
 
-function update() {
+function all($table) {
+    $pdo = connect();
 
+    $sql = "select * from {$table}";
+
+    $list = $pdo->query($sql);
+
+    $list->execute();
+
+    return $list->fetchAll();
 }
 
-function find() {
+
+function update($table, $fields, $where) {
+    if(!is_array($fields)) {
+        $fields = (array) $fields;
+    }
+
+    $pdo = connect();
+
+    $data = array_map(function($field) {
+
+        return "{$field} = :{$field}";
+
+    }, array_keys($fields) );
+
+    $sql = "update {$table} set ";
+
+    $sql .= implode(',',$data);
+
+    $sql .= " where {$where[0]} = :{$where[0]}";
+
+    $data = array_merge($fields, [$where[0] => $where[1]]);
+
+    $update = $pdo->prepare($sql);
+
+    $update->execute($data);
+
+    return $update->rowCount();
+}
+
+function find($table, $fields, $value) {
+    $pdo = connect();
+
+    $value = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
+
+    $sql = "select * from {$table} where {$fields} = :{$fields}";
+
+    $find = $pdo->prepare($sql);
+
+    $find->bindValue($fields, $value);
+
+    $find->execute();
+
+    return $find->fetch();
+
 
 }
 
